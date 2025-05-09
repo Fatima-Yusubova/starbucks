@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@layer utilities {
+  @media (min-width: 1280px) {
+    .xl-container {
+      max-width: 95%;
+      margin: auto;
+    }
+  }
+}

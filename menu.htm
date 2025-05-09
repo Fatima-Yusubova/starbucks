@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+<body>
+     <header class="bg-white shadow-sm">
+        <div class="my_container">
+            <div class=" py-6 flex justify-between items-center ">
+            <div class="flex gap-7 items-center">
+            <a href="index.htm"><img class="w-[51px]" src="./img/logo.svg" alt=""></a>
+            <ul class="hidden md:flex gap-6">
+                <li><a href="menu.htm" class="uppercase text-[14px] font-bold font-sans text-[#000000DE] tracking-widest leading-snug border-b-6 border-[#00754a] pb-9">menu</a></li>
+                <li><a href="rewards.htm" class="uppercase text-[14px] font-bold font-sans text-[#000000DE] tracking-widest leading-snug">rewards</a></li>
+                <li><a href="" class="uppercase text-[14px] font-bold font-sans  text-[#000000DE] tracking-widest leading-snug">gift cards</a></li>
+            </ul>
+        </div>
+        <div class="hidden md:flex gap-5 items-center">
+            <a href="" class="text-[14px] font-bold leading-snug pr-6 inline-block hover:text-[#00754a] ">
+                <span class="pr-3 inline-block"><i class="fa-solid fa-location-dot"></i></span>
+                <span>Find store</span>
+            </a>
+            <a  class=" border border-b-black text-[14px] font-bold rounded-2xl px-4 py-1 block" href="">Sign in</a>
+            <a class="bg-black text-white text-[14px] font-bold  px-4 py-1 rounded-2xl" href="">Join now</a>
+        </div>
+        <div class="inline-block md:hidden">
+            <button onclick="toggleMenu()" class="w-8 h-6 flex flex-col justify-between items-center z-50">
+                <span class="bar w-full h-[2px] bg-black transition-all duration-300"></span>
+                <span class="bar w-full h-[2px] bg-black transition-all duration-300"></span>
+                <span class="bar w-full h-[2px] bg-black transition-all duration-300"></span>
+            </button>
+        </div>
+        </div>
+        </div>
+         <div class="bg-[#f9f9f9] py-4">
+            <div class="w-[95%] md:max-w-[80%] mx-auto">
+                 <div>
+            <ul class="flex gap-6 w-full justify-start">
+                <li><a href="" class=" text-[14px] text-[#000000DE] leading-snug">Menu</a></li>
+                <li><a href="" class=" text-[14px] text-[#000000DE] leading-snug">Featured</a></li>
+                <li><a href="" class=" text-[14px] text-[#000000DE] leading-snug">Previous</a></li>
+                <li><a href="" class=" text-[14px] text-[#000000DE] leading-snug">Favorites</a></li>
+            </ul>
+        </div>
+            </div>
+        </div>
+    </header>
+    <main>
+         <div id="loadingOverlay" class="fixed top-[200px] left-0 w-full h-screen bg-white flex justify-center items-start z-50">
+        <img src="./img/loading.svg" alt="" class="w-[80px] h-[80px]">
+        </div>
+        <div id="hiddenList" class="fixed top-[100px] right-0  bg-white w-[80%] h-full transform translate-x-full transition-transform duration-500 z-10">
+           <div class="py-6 w-[80%] mx-auto border-b border-b-gray-300 ">
+            <ul>
+                <li class="py-4 "><a href="" class="text-[20px] text-[#000000DE] font-semibold tracking-widest leading-snug " >Menu</a></li>
+                <li class="py-4 "><a href="" class="text-[20px] text-[#000000DE] font-semibold tracking-widest leading-snug" >Reward</a></li>
+                <li class="py-4 "><a href="" class="text-[20px] text-[#000000DE] font-semibold tracking-widest leading-snug" >Gift Cards</a></li>
+            </ul>
+           </div>
+           <div class="py-6 w-[80%] mx-auto space-x-4">
+            <a  class=" border border-b-black text-[14px] font-bold rounded-2xl px-4 py-1.5 " href="">Sign in</a>
+            <a  class="bg-black text-white text-[14px] font-bold  px-4 py-1.5 rounded-2xl" href="">Join now</a>
+            <a href="" class="text-[14px] font-bold leading-snug pr-6 block hover:text-[#00754a] py-6 ">
+                <span class="pr-3 inline-block"><i class="fa-solid fa-location-dot"></i></span>
+                <span>Find store</span>
+            </a>
+           </div>
+        </div>
+        <div class="w-[95%] md:max-w-[80%] m-auto">
+            <!-- drinks -->
+             <div class=" pt-10 flex gap-15 items-start ">
+                <div class="hidden lg:block ">
+                <ul id="menuLi"> </ul>
+             </div>
+             <div>
+                
+                <h1 id="menuAd" class="text-3xl text-[#000000DE] font-extrabold pb-10  tracking-wider ">Menu</h1>
+                <div id="menus"></div>
+             </div>
+             </div>
+        </div>
+    </main>
+     <footer class="shadow-[0_-6px_10px_rgba(0,0,0,0.1)]">
+        <div class="my_container2">
+     <div class="grid grid-cols-1 md:grid-cols-5 gap-8 py-6 border-b border-gray-300   ">
+        <div>
+            <h2 class="text-[16px] font-medium mb-4 text-[#000000DE] tracking-wider leading-snug">About Us</h2>
+            <ul class="space-y-2">
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black ">Our Company</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black"  >Our Coffee</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">About Starbucks</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Starbucks Archive</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Investor Relations</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Customer Service</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-[16px] font-medium mb-4 text-[#000000DE] tracking-wider leading-snug">Careers</h2>
+            <ul class="space-y-2">
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Culture and Values</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Belonging at Starbucks</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">College Achievement Plan</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Alumni Community</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">U.S. Careers</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">International Careers</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-[16px] font-medium mb-4 text-[#000000DE] tracking-wider leading-snug">Social Impact</h2>
+            <ul class="space-y-2">
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Communities</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Starbucks Foundation</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Sustainability</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Environmental and Social Impact Reporting</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-[16px] font-medium mb-4 text-[#000000DE] tracking-wider leading-snug">For Business Partners</h2>
+            <ul class="space-y-2">
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Landlord Support Center</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Suppliers</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Corporate Gift Card Sales</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Office and Foodservice Coffee</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-[16px] font-medium mb-4 text-[#000000DE] tracking-wider leading-snug">Order and Pick Up</h2>
+            <ul class="space-y-2">
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Order on the App</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Order on the Web</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Delivery</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Order and Pick Up Options</a></li>
+            <li><a href="#" class="text-[16px] text-[#00000094] leading-snug pt-3 inline-block hover:text-black">Explore and Find Coffee for Home</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="py-10">
+            <ul class="flex gap-1">
+                <li><a href="" class=" w-10 h-10  flex justify-center items-center rounded-full transition duration-300 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200"><i class="fa-brands fa-spotify text-3xl"></i></a></li>
+                <li><a href="" class=" w-10 h-10  flex justify-center items-center rounded-full transition duration-300 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200"><i class="fa-brands fa-facebook text-3xl"></i></a></li>
+                <li><a href="" class=" w-10 h-10  flex justify-center items-center rounded-full transition duration-300 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200"><i class="fa-brands fa-pinterest text-3xl"></i></a></li>
+                <li><a href="" class=" w-10 h-10  flex justify-center items-center rounded-full transition duration-300 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200"><i class="fa-brands fa-square-instagram text-3xl"></i></a></li>
+                <li><a href="" class=" w-10 h-10  flex justify-center items-center rounded-full transition duration-300 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200"><i class="fa-brands fa-youtube text-3xl"></i></a></li>
+                <li><a href="" class=" w-10 h-10  flex justify-center items-center rounded-full transition duration-300 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200"><i class="fa-brands fa-square-x-twitter text-3xl"></i></a></li>
+            </ul>
+         <ul class="space-y-2">
+                <li><a href="#" class="text-[16px] text-[#000000DE] pt-3 inline-block">Privacy Notice</a></li>
+                <li><a href="#" class="text-[16px] text-[#000000DE] pt-3 inline-block">Consumer Health Privacy Notice</a></li>
+                <li><a href="#" class="text-[16px] text-[#000000DE] pt-3 inline-block">Terms of Use</a></li>
+                <li><a href="#" class="underline">Do Not Share My Personal Information</a></li>
+                <li><a href="#" class="text-[16px] text-[#000000DE] pt-3 inline-block">CA Supply Chain Act</a></li>
+                <li><a href="#" class="text-[16px] text-[#000000DE] pt-3 inline-block">Accessibility</a></li>
+                <li><a href="#" class="text-[16px] text-[#000000DE] pt-3 inline-block">Cookie Preferences</a></li>
+        </ul>
+        <p class="text-[14px] text-[#00000094] py-4">© 2025 Starbucks Coffee Company. All rights reserved.</p>
+        </div>
+        </div>
+    </footer>
+    <!-- <div class="bg-[#1E3932] fixed bottom-0 py-5 w-full flex justify-end pr-10 ">
+       <button onclick="openBasket()" class="relative"><i class="fa-solid fa-bag-shopping text-[#0bbd81] text-3xl"></i>
+        <span id="basketCount" class="absolute -top-2 -right-2 bg-white text-black font-bold text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+    </button>
+    </div> -->
+    <script src="script.js"></script>
+</body>
+</html>

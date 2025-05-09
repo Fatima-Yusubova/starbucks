@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.my_container{
+    max-width: 95%;
+    margin: auto;
+}
+.my_container2{
+    max-width: 85%;
+    margin: auto;
+}
+.my_container3{
+    max-width: 75%;
+    margin: auto;
+}
